@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Memorial Trail Ice House - Houston's premier craft bar. Visit us for drinks, events, and good times.
+<title>Menu — Memorial Trail Ice House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal: #1C1C1C;
+    --green: #2D5A3D;
+    --gold: #D4924A;
+    --cream: #F5F0E8;
+    --dark2: #141414;
+    --mid: #242424;
+  }
+
+  body {
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--charcoal);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+  }
+
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: var(--dark2);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    z-index: 99;
+    padding: 1rem 0;
+  }
+
+  .nav-mobile.open { display: block; }
+
+  .nav-mobile a {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-mobile a:hover, .nav-mobile a.active {
+    color: var(--gold);
+    border-left-color: var(--gold);
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    margin-top: 56px;
+    padding: 5rem 4rem 4rem;
+    background: var(--dark2);
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+    display: flex;
+    align-items: flex-end;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .page-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--cream);
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .page-title em { font-style: italic; color: var(--gold); }
+
+  .header-note {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.65;
+    max-width: 320px;
+  }
+
+  /* HAPPY HOUR BAND */
+  .happy-hour {
+    background: var(--green);
+    padding: 3.5rem 4rem;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+  }
+
+  .hh-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .hh-left .hh-time {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    margin-top: 0.4rem;
+  }
+
+  .hh-deals {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  .hh-deal {
+    background: rgba(245,240,232,0.07);
+    border: 1px solid rgba(245,240,232,0.12);
+    padding: 1.25rem 1.5rem;
+    min-width: 140px;
+    text-align: center;
+  }
+
+  .hh-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .hh-item {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+  }
+
+  /* SECTION WRAPPER */
+  .menu-section {
+    padding: 5rem 4rem;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+  }
+
+  .menu-section:nth-child(even) { background: var(--dark2); }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.1;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .section-price-tag {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(212,146,74,0.6);
+    border: 1px solid rgba(212,146,74,0.2);
+    padding: 0.4rem 1rem;
+    align-self: flex-start;
+  }
+
+  /* COCKTAIL CARDS */
+  .cocktail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: rgba(245,240,232,0.06);
+  }
+
+  .cocktail-card {
+    background: var(--charcoal);
+    padding: 2rem;
+    position: relative;
+    transition: background 0.25s;
+  }
+
+  .menu-section:nth-child(even) .cocktail-card { background: var(--dark2); }
+
+  .cocktail-card:hover { background: rgba(45,90,61,0.12); }
+
+  .cocktail-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+    padding-right: 2rem;
+  }
+
+  .cocktail-ingredients {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.6;
+  }
+
+  .cocktail-price {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  /* SPECIALS TABLE */
+  .specials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(245,240,232,0.06);
+  }
+
+  .special-card {
+    background: var(--charcoal);
+    padding: 2rem 2.5rem;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .special-card:hover {
+    border-left-color: var(--gold);
+    background: rgba(212,146,74,0.04);
+  }
+
+  .special-day {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .special-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+
+  .special-deals {
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.7;
+  }
+
+  .special-deals strong {
+    color: rgba(245,240,232,0.8);
+    font-weight: 500;
+  }
+
+  /* SMALL SECTIONS */
+  .small-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(245,240,232,0.06);
+  }
+
+  .small-section {
+    background: var(--charcoal);
+    padding: 2.5rem;
+  }
+
+  .small-section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+  }
+
+  .item-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .item-list li {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .item-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(245,240,232,0.06);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-credit {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.35);
+  }
+
+  .footer-credit a {
+    color: rgba(212,146,74,0.7);
+    text-decoration: none;
+  }
+
+  .footer-credit a:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .page-header { padding: 3.5rem 2rem 2.5rem; }
+    .happy-hour { padding: 2.5rem 2rem; gap: 2rem; }
+    .menu-section { padding: 3.5rem 2rem; }
+    .specials-grid { grid-template-columns: 1fr; }
+    .small-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Memorial Trail <span>Ice House</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Story</a></li>
+    <li><a href="menu.html" class="active">Menu</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Visit</a></li>
+    <li><a href="deck.html">Strategy Deck</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="story.html">Story</a>
+  <a href="menu.html" class="active">Menu</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Visit</a>
+  <a href="deck.html">Strategy Deck</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <p class="page-eyebrow">What We're Pouring</p>
+    <h1 class="page-title">The Menu.</h1>
+  </div>
+  <p class="header-note">Craft cocktails, cold drafts, and daily specials built for the neighborhood. $13 specialty cocktails. Happy hour noon to 7, weekdays.</p>
+</div>
+
+<!-- HAPPY HOUR BAND -->
+<div class="happy-hour">
+  <div class="hh-left">
+    <h2>Happy Hour</h2>
+    <div class="hh-time">Noon – 7pm · Mon – Fri</div>
+  </div>
+  <div class="hh-deals">
+    <div class="hh-deal">
+      <div class="hh-price">$3</div>
+      <div class="hh-item">Green or White Tea Shots</div>
+    </div>
+    <div class="hh-deal">
+      <div class="hh-price">$4</div>
+      <div class="hh-item">Modelo Drafts</div>
+    </div>
+    <div class="hh-deal">
+      <div class="hh-price">$5</div>
+      <div class="hh-item">House Margaritas</div>
+    </div>
+    <div class="hh-deal">
+      <div class="hh-price">$6</div>
+      <div class="hh-item">Ranch Waters</div>
+    </div>
+  </div>
+</div>
+
+<!-- SPECIALTY COCKTAILS -->
+<div class="menu-section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Signature Drinks</div>
+      <h2 class="section-title">Specialty <em>Cocktails</em></h2>
+    </div>
+    <div class="section-price-tag">All $13</div>
+  </div>
+  <div class="cocktail-grid">
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Woodcrest Watermelon Aqua Fresca</div>
+      <div class="cocktail-ingredients">Vodka, fresh lemon &amp; lime juice, agave, Watermelon Red Bull &amp; Sprite</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Rice Military Ranch-A-Rita</div>
+      <div class="cocktail-ingredients">21 Seeds Cucumber Jalapeño Tequila, lime juice, agave, soda</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">The Back 9 Buck</div>
+      <div class="cocktail-ingredients">Redemption, muddled strawberries, simple syrup, lemon juice, bitters</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Crestwood Cosmo</div>
+      <div class="cocktail-ingredients">Vodka, blood orange syrup, triple sec, simple syrup, lime &amp; cranberry</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">I Got Ube</div>
+      <div class="cocktail-ingredients">Ford's Gin, lime juice, pineapple juice, ube, coconut syrup</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Camp Logan Old Fashioned</div>
+      <div class="cocktail-ingredients">Old Forrester, orange &amp; chocolate bitters, maple syrup, orange peel &amp; cherry</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Taylor Made Trail-Tini</div>
+      <div class="cocktail-ingredients">Vodka, Maven cold press espresso, agave</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Sunrise Margarita</div>
+      <div class="cocktail-ingredients">El Jimador Blanco, orange marmalade, triple sec, lime over ice</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Picnic in the Park Paloma</div>
+      <div class="cocktail-ingredients">Espolon Blanco, grapefruit, lime, raspberry, triple sec, soda</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Shay's Bourbon Smash</div>
+      <div class="cocktail-ingredients">Redemption, maple syrup, pomegranate, orange &amp; lemon juice, soda</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Shelby's Sunset Sour</div>
+      <div class="cocktail-ingredients">Old Forrester, lemon juice, simple syrup, egg white, house red wine</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Business With Pleasure</div>
+      <div class="cocktail-ingredients">Ford's Gin, pineapple juice, lime juice, house honey syrup</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Loewen Slow</div>
+      <div class="cocktail-ingredients">Ford's Gin, Campari, simple syrup, lemon juice, champagne</div>
+    </div>
+
+    <div class="cocktail-card">
+      <div class="cocktail-price">$13</div>
+      <div class="cocktail-name">Jen &amp; Juice</div>
+      <div class="cocktail-ingredients">Ford's Gin, strawberry jam, lemon juice</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DAILY SPECIALS -->
+<div class="menu-section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Every Night Has Its Thing</div>
+      <h2 class="section-title">Daily <em>Specials</em></h2>
+    </div>
+  </div>
+  <div class="specials-grid">
+
+    <div class="special-card">
+      <div class="special-day">Monday</div>
+      <div class="special-name">Industry &amp; Steak Night</div>
+      <div class="special-deals">
+        <strong>$5</strong> Rumpleminze / Espolon / Jäger<br>
+        <strong>$100</strong> Select Bottles
+      </div>
+    </div>
+
+    <div class="special-card">
+      <div class="special-day">Tuesday</div>
+      <div class="special-name">$3 Trivia Night</div>
+      <div class="special-deals">
+        <strong>$3</strong> Green/White Tea Shots<br>
+        <strong>$3</strong> Lemon Drop Shots<br>
+        <strong>$3</strong> Domestic Drafts
+      </div>
+    </div>
+
+    <div class="special-card">
+      <div class="special-day">Wednesday</div>
+      <div class="special-name">Whiskey &amp; Wine</div>
+      <div class="special-deals">
+        <strong>$5</strong> Redemption Gold Rush<br>
+        <strong>$6</strong> Wine<br>
+        <strong>$7</strong> Old Forrester Old Fashioned
+      </div>
+    </div>
+
+    <div class="special-card">
+      <div class="special-day">Thursday</div>
+      <div class="special-name">Happy Hour All Day</div>
+      <div class="special-deals">
+        Happy hour pricing from <strong>open to close</strong>. All day, all night.
+      </div>
+    </div>
+
+    <div class="special-card">
+      <div class="special-day">Friday</div>
+      <div class="special-name">Half Off Everything Good</div>
+      <div class="special-deals">
+        <strong>50% off</strong> specialty cocktails<br>
+        <strong>50% off</strong> domestic drafts &amp; house wine
+      </div>
+    </div>
+
+    <div class="special-card">
+      <div class="special-day">Saturday &amp; Sunday</div>
+      <div class="special-name">Weekend Mode</div>
+      <div class="special-deals">
+        <strong>$3</strong> Mimosas til 3pm &nbsp;·&nbsp; <strong>$5</strong> Shots<br>
+        <strong>$6</strong> Trail Margaritas &nbsp;·&nbsp; <strong>$8</strong> Frozens<br>
+        <strong>$10 off</strong> Towers &nbsp;·&nbsp; <strong>$25</strong> Buckets
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FROZENS / PREBATCHED / JELLO SHOTS -->
+<div class="menu-section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">More to Pour</div>
+      <h2 class="section-title">Frozens, Batched<br>&amp; <em>Jello Shots</em></h2>
+    </div>
+  </div>
+  <div class="small-grid">
+
+    <div class="small-section">
+      <div class="small-section-title">Frozens</div>
+      <ul class="item-list">
+        <li>Hibiscus Margarita</li>
+        <li>N/A Strawberry Lemonade</li>
+      </ul>
+    </div>
+
+    <div class="small-section">
+      <div class="small-section-title">Prebatched</div>
+      <ul class="item-list">
+        <li>Bourbon Cherry Bomb</li>
+        <li>Transfusion</li>
+      </ul>
+    </div>
+
+    <div class="small-section">
+      <div class="small-section-title">Jello Shots</div>
+      <ul class="item-list">
+        <li>Old Fashioned</li>
+        <li>The Crisp Martini</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Memorial Trail <span>Ice House</span></div>
+  <div class="footer-credit">Website by <a href="https://clstrategy.co" target="_blank">C&amp;L Strategy</a></div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navMobile').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

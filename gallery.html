@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Memorial Trail Ice House - Houston's premier craft bar. Visit us for drinks, events, and good times.
+<title>Gallery — Memorial Trail Ice House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal: #1C1C1C;
+    --green: #2D5A3D;
+    --gold: #D4924A;
+    --cream: #F5F0E8;
+    --dark2: #141414;
+  }
+
+  body {
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--charcoal);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+  }
+
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: var(--dark2);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    z-index: 99;
+    padding: 1rem 0;
+  }
+
+  .nav-mobile.open { display: block; }
+
+  .nav-mobile a {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-mobile a:hover, .nav-mobile a.active {
+    color: var(--gold);
+    border-left-color: var(--gold);
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    margin-top: 56px;
+    padding: 5rem 4rem 4rem;
+    background: var(--dark2);
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+  }
+
+  .page-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+
+  .page-title em { font-style: italic; color: var(--gold); }
+
+  /* FILTER TABS */
+  .filter-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+    padding: 0 4rem;
+    background: var(--dark2);
+  }
+
+  .filter-tab {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.45);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .filter-tab:hover { color: var(--cream); }
+  .filter-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* BEFORE/AFTER TRANSFORMATION SECTION */
+  .transformation-section {
+    background: var(--dark2);
+    padding: 4rem 4rem 5rem;
+    border-bottom: 1px solid rgba(212,146,74,0.15);
+  }
+
+  .transformation-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .transformation-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .transformation-eyebrow::before,
+  .transformation-eyebrow::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .transformation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+  }
+
+  .transformation-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .slider-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .comparison-slider {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: ew-resize;
+    background: var(--charcoal);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .comparison-slider::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(212,146,74,0.2);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .comparison-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .comparison-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .comparison-before {
+    z-index: 1;
+  }
+
+  .comparison-after {
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+  }
+
+  .comparison-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: var(--gold);
+    z-index: 5;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .comparison-handle::before,
+  .comparison-handle::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .comparison-handle::after {
+    width: auto;
+    height: auto;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .handle-arrow {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+  }
+
+  .handle-arrow svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--charcoal);
+    stroke-width: 2.5;
+    fill: none;
+  }
+
+  .comparison-label {
+    position: absolute;
+    bottom: 1rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: rgba(28,28,28,0.85);
+    padding: 0.5rem 1rem;
+    z-index: 8;
+  }
+
+  .comparison-label-before {
+    left: 1rem;
+  }
+
+  .comparison-label-after {
+    right: 1rem;
+  }
+
+  .comparison-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-top: 1.25rem;
+  }
+
+  @media (max-width: 900px) {
+    .transformation-section { padding: 3rem 2rem 4rem; }
+    .slider-container { max-width: 100%; }
+  }
+
+  /* GALLERY GRID */
+  .gallery-container {
+    padding: 3px;
+    background: var(--charcoal);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1;
+    background: var(--dark2);
+  }
+
+  .gallery-item.wide {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+  }
+
+  .gallery-item.tall {
+    grid-row: span 2;
+    aspect-ratio: 1/2;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.8);
+    transition: transform 0.5s ease, filter 0.4s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+    filter: saturate(1.1);
+  }
+
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20,20,20,0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+
+  .gallery-item:hover .gallery-item-overlay {
+    background: rgba(20,20,20,0.35);
+  }
+
+  .gallery-item-overlay svg {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .gallery-item:hover .gallery-item-overlay svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(14,14,14,0.97);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .lightbox.open {
+    display: flex;
+  }
+
+  .lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: color 0.2s;
+  }
+
+  .lightbox-close:hover { color: var(--cream); }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2rem 1.5rem;
+    color: rgba(245,240,232,0.3);
+    font-size: 2rem;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .lightbox-nav:hover { color: var(--gold); }
+  .lightbox-prev { left: 0; }
+  .lightbox-next { right: 0; }
+
+  .lightbox-caption {
+    margin-top: 1.25rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+  }
+
+  .lightbox-counter {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(245,240,232,0.06);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-credit {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.35);
+  }
+
+  .footer-credit a {
+    color: rgba(212,146,74,0.7);
+    text-decoration: none;
+  }
+
+  .footer-credit a:hover { color: var(--gold); }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .page-header { padding: 3.5rem 2rem 2.5rem; }
+    .filter-tabs { padding: 0 2rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
+    .gallery-item.tall { grid-row: span 1; aspect-ratio: 1; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.wide { grid-column: span 2; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Memorial Trail <span>Ice House</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Story</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html">Visit</a></li>
+    <li><a href="deck.html">Strategy Deck</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="story.html">Story</a>
+  <a href="menu.html">Menu</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html" class="active">Gallery</a>
+  <a href="contact.html">Visit</a>
+  <a href="deck.html">Strategy Deck</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="page-eyebrow">The Space</p>
+  <h1 class="page-title">A Look <em>Inside</em><br>&amp; Out.</h1>
+</div>
+
+<!-- FILTER TABS -->
+<div class="filter-tabs">
+  <button class="filter-tab active" onclick="filterGallery('all', this)">All Photos</button>
+  <button class="filter-tab" onclick="filterGallery('interior', this)">Interior</button>
+  <button class="filter-tab" onclick="filterGallery('exterior', this)">Exterior</button>
+  <button class="filter-tab" onclick="filterGallery('build', this)">The Build</button>
+</div>
+
+<!-- TRANSFORMATION SECTION (Archived - now showing live venue photos) -->
+
+<!-- GALLERY GRID -->
+<div class="gallery-container">
+  <div class="gallery-grid" id="galleryGrid">
+
+    <div class="gallery-item wide" data-cat="interior" data-src="images/gallery/ice-house-bar-01.jpg" data-cap="Bar & Cocktails">
+      <img src="images/gallery/ice-house-bar-01.jpg" alt="Bar & Cocktails" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="interior" data-src="images/gallery/ice-house-interior-01.jpg" data-cap="Interior Vibes">
+      <img src="images/gallery/ice-house-interior-01.jpg" alt="Interior Vibes" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="interior" data-src="images/gallery/ice-house-interior-02.jpg" data-cap="Seating & Ambiance">
+      <img src="images/gallery/ice-house-interior-02.jpg" alt="Seating & Ambiance" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="exterior" data-src="images/gallery/ice-house-patio-01.jpg" data-cap="Outdoor Patio">
+      <img src="images/gallery/ice-house-patio-01.jpg" alt="Outdoor Patio" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item wide" data-cat="exterior" data-src="images/gallery/ice-house-patio-02.jpg" data-cap="Evening at the Patio">
+      <img src="images/gallery/ice-house-patio-02.jpg" alt="Evening at the Patio" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="exterior" data-src="images/gallery/ice-house-exterior-01.jpg" data-cap="Main Entrance">
+      <img src="images/gallery/ice-house-exterior-01.jpg" alt="Main Entrance" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="exterior" data-src="images/gallery/ice-house-exterior-02.jpg" data-cap="Exterior Character">
+      <img src="images/gallery/ice-house-exterior-02.jpg" alt="Exterior Character" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="people" data-src="images/gallery/ice-house-people-01.jpg" data-cap="Happy Guests">
+      <img src="images/gallery/ice-house-people-01.jpg" alt="Happy Guests" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="people" data-src="images/gallery/ice-house-people-02.jpg" data-cap="Community Vibes">
+      <img src="images/gallery/ice-house-people-02.jpg" alt="Community Vibes" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="details" data-src="images/gallery/ice-house-detail-01.jpg" data-cap="Design Details">
+      <img src="images/gallery/ice-house-detail-01.jpg" alt="Design Details" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="details" data-src="images/gallery/ice-house-detail-02.jpg" data-cap="Intimate Moments">
+      <img src="images/gallery/ice-house-detail-02.jpg" alt="Intimate Moments" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="details" data-src="images/gallery/ice-house-detail-03.jpg" data-cap="Decor & Style">
+      <img src="images/gallery/ice-house-detail-03.jpg" alt="Decor & Style" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">Close ✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8592;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8594;</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Memorial Trail <span>Ice House</span></div>
+  <div class="footer-credit">Website by <a href="https://clstrategy.co" target="_blank">C&amp;L Strategy</a></div>
+</footer>
+
+<script>
+  // NAV
+  function toggleMenu() {
+    document.getElementById('navMobile').classList.toggle('open');
+  }
+
+  // BEFORE/AFTER SLIDER
+  document.querySelectorAll('.comparison-slider').forEach(slider => {
+    const afterImage = slider.querySelector('.comparison-after');
+    const handle = slider.querySelector('.comparison-handle');
+    
+    function updateSlider(x) {
+      const rect = slider.getBoundingClientRect();
+      let position = ((x - rect.left) / rect.width) * 100;
+      position = Math.max(0, Math.min(100, position));
+      
+      afterImage.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+      handle.style.left = position + '%';
+    }
+    
+    // Mouse events
+    slider.addEventListener('mousedown', function(e) {
+      e.preventDefault();
+      updateSlider(e.clientX);
+      
+      function onMouseMove(e) {
+        updateSlider(e.clientX);
+      }
+      
+      function onMouseUp() {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+      
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+    });
+    
+    // Touch events
+    slider.addEventListener('touchstart', function(e) {
+      updateSlider(e.touches[0].clientX);
+      
+      function onTouchMove(e) {
+        updateSlider(e.touches[0].clientX);
+      }
+      
+      function onTouchEnd() {
+        document.removeEventListener('touchmove', onTouchMove);
+        document.removeEventListener('touchend', onTouchEnd);
+      }
+      
+      document.addEventListener('touchmove', onTouchMove);
+      document.addEventListener('touchend', onTouchEnd);
+    });
+  });
+
+  // GALLERY FILTER
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+
+    updateLightboxItems();
+  }
+
+  // LIGHTBOX
+  var lightboxItems = [];
+  var currentIdx = 0;
+
+  function updateLightboxItems() {
+    lightboxItems = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+  }
+
+  updateLightboxItems();
+
+  // Attach click handlers
+  document.querySelectorAll('.gallery-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      updateLightboxItems();
+      var idx = lightboxItems.indexOf(item);
+      openLightbox(idx);
+    });
+  });
+
+  function openLightbox(idx) {
+    currentIdx = idx;
+    var item = lightboxItems[idx];
+    document.getElementById('lightboxImg').src = item.dataset.src;
+    document.getElementById('lightboxCaption').textContent = item.dataset.cap || '';
+    document.getElementById('lightboxCounter').textContent = (idx + 1) + ' / ' + lightboxItems.length;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxOutside(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+
+  function lightboxNav(dir) {
+    currentIdx = (currentIdx + dir + lightboxItems.length) % lightboxItems.length;
+    openLightbox(currentIdx);
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'ArrowLeft') lightboxNav(-1);
+    if (e.key === 'ArrowRight') lightboxNav(1);
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+</body>
+</html>

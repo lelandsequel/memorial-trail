@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Memorial Trail Ice House - Houston's premier craft bar. Visit us for drinks, events, and good times.
+<title>Events — Memorial Trail Ice House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal: #1C1C1C;
+    --green: #2D5A3D;
+    --gold: #D4924A;
+    --cream: #F5F0E8;
+    --dark2: #141414;
+  }
+
+  body {
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--charcoal);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+  }
+
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: var(--dark2);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    z-index: 99;
+    padding: 1rem 0;
+  }
+
+  .nav-mobile.open { display: block; }
+
+  .nav-mobile a {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-mobile a:hover, .nav-mobile a.active {
+    color: var(--gold);
+    border-left-color: var(--gold);
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    margin-top: 56px;
+    position: relative;
+    height: 50vh;
+    min-height: 350px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 4rem 4rem;
+  }
+
+  .page-header-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/gallery/patio.jpg');
+    background-size: cover;
+    background-position: center 60%;
+    animation: kenburns 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes kenburns {
+    0%   { transform: scale(1.0); }
+    100% { transform: scale(1.07) translate(-1%, 0.5%); }
+  }
+
+  .page-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.45) 60%, transparent 100%);
+  }
+
+  .page-header-content { position: relative; z-index: 2; }
+
+  .page-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--cream);
+  }
+
+  /* WEEK GRID */
+  .week-intro {
+    padding: 4rem 4rem 2rem;
+    background: var(--dark2);
+  }
+
+  .week-intro p {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.55);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: rgba(245,240,232,0.04);
+  }
+
+  .day-card {
+    background: var(--dark2);
+    border-right: 1px solid rgba(245,240,232,0.06);
+    padding: 2.5rem 1.75rem;
+    min-height: 320px;
+    transition: background 0.25s;
+    position: relative;
+  }
+
+  .day-card:last-child { border-right: none; }
+
+  .day-card.featured {
+    background: rgba(45,90,61,0.18);
+    border-top: 2px solid var(--gold);
+  }
+
+  .day-card.featured .day-num { color: var(--gold); }
+
+  .day-card:hover { background: rgba(45,90,61,0.1); }
+
+  .day-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(245,240,232,0.08);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .day-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+  }
+
+  .day-event-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .day-deals {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.75;
+  }
+
+  .day-deals strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* SPECIAL CALLOUTS */
+  .callout-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    background: rgba(245,240,232,0.04);
+    padding: 4px;
+    margin: 0 4rem 0;
+  }
+
+  .callout-card {
+    padding: 3rem;
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .callout-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+  }
+
+  .callout-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .callout-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .callout-title em { font-style: italic; }
+
+  .callout-body {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.7;
+  }
+
+  .callout-body strong { color: rgba(245,240,232,0.85); font-weight: 500; }
+
+  /* HAPPY HOUR REMINDER */
+  .hh-reminder {
+    background: var(--green);
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .hh-reminder-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .hh-reminder-text p {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.65);
+    line-height: 1.65;
+  }
+
+  .btn-outline-light {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    border: 1px solid rgba(245,240,232,0.4);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-outline-light:hover {
+    border-color: var(--cream);
+    background: rgba(245,240,232,0.06);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(245,240,232,0.06);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-credit {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.35);
+  }
+
+  .footer-credit a {
+    color: rgba(212,146,74,0.7);
+    text-decoration: none;
+  }
+
+  .footer-credit a:hover { color: var(--gold); }
+
+  @media (max-width: 1100px) {
+    .week-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .page-header { padding: 0 2rem 3rem; }
+    .week-intro { padding: 3rem 2rem 1.5rem; }
+    .week-grid { grid-template-columns: 1fr 1fr; }
+    .callout-strip { grid-template-columns: 1fr; margin: 0 2rem; }
+    .hh-reminder { padding: 3rem 2rem; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .week-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Memorial Trail <span>Ice House</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Story</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="events.html" class="active">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Visit</a></li>
+    <li><a href="deck.html">Strategy Deck</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="story.html">Story</a>
+  <a href="menu.html">Menu</a>
+  <a href="events.html" class="active">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Visit</a>
+  <a href="deck.html">Strategy Deck</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-overlay"></div>
+  <div class="page-header-content">
+    <p class="page-eyebrow">Every Night</p>
+    <h1 class="page-title">Something's<br>Always On.</h1>
+  </div>
+</div>
+
+<!-- WEEK INTRO -->
+<div class="week-intro">
+  <p>Seven nights a week, we give you a reason to show up. From industry night to trivia, half-off Fridays to weekend mimosas — there's always something worth coming for.</p>
+</div>
+
+<!-- WEEK GRID -->
+<div class="week-grid">
+
+  <div class="day-card featured">
+    <div class="day-num">01</div>
+    <div class="day-name">Monday</div>
+    <div class="day-event-name">Industry &amp; Steak Night</div>
+    <div class="day-deals">
+      <strong>$5</strong> Rumpleminze<br>
+      <strong>$5</strong> Espolon<br>
+      <strong>$5</strong> Jägermeister<br>
+      <strong>$100</strong> Select Bottles
+    </div>
+  </div>
+
+  <div class="day-card featured">
+    <div class="day-num">02</div>
+    <div class="day-name">Tuesday</div>
+    <div class="day-event-name">$3 Trivia Night</div>
+    <div class="day-deals">
+      <strong>$3</strong> Green Tea Shots<br>
+      <strong>$3</strong> White Tea Shots<br>
+      <strong>$3</strong> Lemon Drop Shots<br>
+      <strong>$3</strong> Domestic Drafts
+    </div>
+  </div>
+
+  <div class="day-card featured">
+    <div class="day-num">03</div>
+    <div class="day-name">Wednesday</div>
+    <div class="day-event-name">Whiskey &amp; Wine</div>
+    <div class="day-deals">
+      <strong>$5</strong> Redemption Gold Rush<br>
+      <strong>$6</strong> House Wine<br>
+      <strong>$7</strong> Old Forrester Old Fashioned
+    </div>
+  </div>
+
+  <div class="day-card featured">
+    <div class="day-num">04</div>
+    <div class="day-name">Thursday</div>
+    <div class="day-event-name">Happy Hour All Day</div>
+    <div class="day-deals">
+      Happy hour from open to close.<br><br>
+      <strong>$3</strong> Tea Shots<br>
+      <strong>$4</strong> Modelo Drafts<br>
+      <strong>$5</strong> House Margs<br>
+      <strong>$6</strong> Ranch Waters
+    </div>
+  </div>
+
+  <div class="day-card featured">
+    <div class="day-num">05</div>
+    <div class="day-name">Friday</div>
+    <div class="day-event-name">Half Off Friday</div>
+    <div class="day-deals">
+      <strong>50% off</strong><br>
+      Specialty Cocktails<br><br>
+      <strong>50% off</strong><br>
+      Domestic Drafts<br>
+      House Wine
+    </div>
+  </div>
+
+  <div class="day-card featured">
+    <div class="day-num">06</div>
+    <div class="day-name">Saturday</div>
+    <div class="day-event-name">Weekend Mode</div>
+    <div class="day-deals">
+      <strong>$3</strong> Mimosas til 3pm<br>
+      <strong>$5</strong> Shots<br>
+      <strong>$6</strong> Trail Margaritas<br>
+      <strong>$8</strong> Frozens<br>
+      <strong>$10 off</strong> Towers<br>
+      <strong>$25</strong> Buckets
+    </div>
+  </div>
+
+  <div class="day-card featured">
+    <div class="day-num">07</div>
+    <div class="day-name">Sunday</div>
+    <div class="day-event-name">Weekend Mode</div>
+    <div class="day-deals">
+      <strong>$3</strong> Mimosas til 3pm<br>
+      <strong>$5</strong> Shots<br>
+      <strong>$6</strong> Trail Margaritas<br>
+      <strong>$8</strong> Frozens<br>
+      <strong>$10 off</strong> Towers<br>
+      <strong>$25</strong> Buckets
+    </div>
+  </div>
+
+</div>
+
+<!-- CALLOUT STRIP -->
+<div style="height: 4rem; background: var(--charcoal);"></div>
+<div class="callout-strip">
+  <div class="callout-card">
+    <div class="callout-label">Every Weekday</div>
+    <h3 class="callout-title">Happy Hour<br><em>Noon to 7.</em></h3>
+    <p class="callout-body">
+      Monday through Friday, 12pm to 7pm. <strong>$3 tea shots. $4 Modelo. $5 house margaritas. $6 ranch waters.</strong> Best happy hour on the trail.
+    </p>
+  </div>
+  <div class="callout-card">
+    <div class="callout-label">Every Friday</div>
+    <h3 class="callout-title">50% Off<br><em>All Night.</em></h3>
+    <p class="callout-body">
+      Half off all <strong>specialty cocktails, domestic drafts, and house wine</strong> — all night long on Fridays. No asterisks.
+    </p>
+  </div>
+</div>
+
+<!-- HH REMINDER -->
+<div class="hh-reminder">
+  <div class="hh-reminder-text">
+    <h2>See What We're Pouring.</h2>
+    <p>Full menu, specialty cocktails, frozens, jello shots — it's all here.</p>
+  </div>
+  <a href="menu.html" class="btn-outline-light">View the Full Menu</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Memorial Trail <span>Ice House</span></div>
+  <div class="footer-credit">Website by <a href="https://clstrategy.co" target="_blank">C&amp;L Strategy</a></div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navMobile').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

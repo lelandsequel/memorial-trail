@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Memorial Trail Ice House - Houston's premier craft bar. Visit us for drinks, events, and good times.
+<title>Visit — Memorial Trail Ice House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal: #1C1C1C;
+    --green: #2D5A3D;
+    --gold: #D4924A;
+    --cream: #F5F0E8;
+    --dark2: #141414;
+  }
+
+  body {
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--charcoal);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+  }
+
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: var(--dark2);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    z-index: 99;
+    padding: 1rem 0;
+  }
+
+  .nav-mobile.open { display: block; }
+
+  .nav-mobile a {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-mobile a:hover, .nav-mobile a.active {
+    color: var(--gold);
+    border-left-color: var(--gold);
+  }
+
+  /* HERO PHOTO */
+  .page-hero {
+    margin-top: 56px;
+    position: relative;
+    height: 50vh;
+    min-height: 340px;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/gallery/exterior-entrance.jpg');
+    background-size: cover;
+    background-position: center 45%;
+    animation: kenburns 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes kenburns {
+    0%   { transform: scale(1.0); }
+    100% { transform: scale(1.07) translate(1%, 0); }
+  }
+
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(20,20,20,0.3) 0%, rgba(20,20,20,0.85) 100%);
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 4rem 4rem;
+  }
+
+  .page-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--cream);
+  }
+
+  /* MAIN CONTENT */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 560px;
+  }
+
+  .contact-info {
+    padding: 5rem 4rem;
+    background: var(--dark2);
+    border-right: 1px solid rgba(245,240,232,0.06);
+  }
+
+  .info-block {
+    margin-bottom: 3.5rem;
+  }
+
+  .info-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+  }
+
+  .info-primary {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.35;
+    margin-bottom: 0.4rem;
+  }
+
+  .info-secondary {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.6;
+  }
+
+  .info-secondary a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .info-secondary a:hover { text-decoration: underline; }
+
+  /* HOURS TABLE */
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .hours-table tr {
+    border-bottom: 1px solid rgba(245,240,232,0.05);
+  }
+
+  .hours-table tr:last-child { border-bottom: none; }
+
+  .hours-table td {
+    padding: 0.65rem 0;
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.6);
+  }
+
+  .hours-table td:first-child {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    width: 40%;
+  }
+
+  .hours-table td.highlight {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .hours-special {
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin-top: 0.2rem;
+  }
+
+  /* MAP SIDE */
+  .map-side {
+    position: relative;
+    background: var(--charcoal);
+  }
+
+  .map-embed {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    border: none;
+    display: block;
+    filter: saturate(0.4) contrast(1.2);
+  }
+
+  .map-pin {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+    background: var(--charcoal);
+    border: 1px solid rgba(212,146,74,0.3);
+    padding: 1.25rem 1.5rem;
+    max-width: 280px;
+  }
+
+  .map-pin-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .map-pin-addr {
+    font-size: 0.85rem;
+    color: var(--cream);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .btn-map {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gold);
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+
+  .btn-map:hover { background: #e0a55a; }
+
+  /* PARKING & NOTES */
+  .notes-strip {
+    background: var(--dark2);
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(245,240,232,0.06);
+  }
+
+  .note-card {
+    padding: 0 2.5rem 0 0;
+    border-right: 1px solid rgba(245,240,232,0.06);
+  }
+
+  .note-card:last-child { border-right: none; padding-right: 0; padding-left: 2.5rem; }
+  .note-card:nth-child(2) { padding-left: 2.5rem; }
+
+  .note-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .note-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .note-body {
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.65;
+  }
+
+  /* PHOTO STRIP */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+    height: 320px;
+  }
+
+  .photo-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.7);
+    transition: filter 0.4s;
+  }
+
+  .photo-strip img:hover { filter: saturate(1); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(245,240,232,0.06);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-credit {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.35);
+  }
+
+  .footer-credit a {
+    color: rgba(212,146,74,0.7);
+    text-decoration: none;
+  }
+
+  .footer-credit a:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .page-hero-content { padding: 0 2rem 2.5rem; }
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-info { padding: 3.5rem 2rem; }
+    .map-side { display: none; }
+    .notes-strip { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2rem; }
+    .note-card { padding: 0; border-right: none; border-bottom: 1px solid rgba(245,240,232,0.06); padding-bottom: 2rem; }
+    .note-card:last-child { border-bottom: none; padding-bottom: 0; padding-left: 0; }
+    .note-card:nth-child(2) { padding-left: 0; }
+    .photo-strip { height: 200px; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Memorial Trail <span>Ice House</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Story</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="active">Visit</a></li>
+    <li><a href="deck.html">Strategy Deck</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="story.html">Story</a>
+  <a href="menu.html">Menu</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html" class="active">Visit</a>
+  <a href="deck.html">Strategy Deck</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div>
+      <p class="page-eyebrow">Come Find Us</p>
+      <h1 class="page-title">Right Off<br>the Trail.</h1>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT LAYOUT -->
+<div class="contact-layout">
+  <div class="contact-info">
+
+    <div class="info-block">
+      <div class="info-label">Location</div>
+      <div class="info-primary">Memorial Trail Ice House</div>
+      <div class="info-secondary">
+        Houston, TX<br>
+        Along the Memorial Trail corridor<br><br>
+        <a href="https://maps.google.com/?q=Memorial+Trail+Ice+House+Houston+TX" target="_blank">Open in Google Maps →</a>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">Hours</div>
+      <table class="hours-table">
+        <tr>
+          <td>Monday</td>
+          <td class="highlight">Noon – Late</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td class="highlight">Noon – Late</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td class="highlight">Noon – Late</td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td class="highlight">Noon – Late</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td class="highlight">Noon – Late</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td class="highlight">Noon – Late</td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td class="highlight">Noon – Late</td>
+        </tr>
+      </table>
+      <div class="hours-special">Happy Hour: Mon–Fri, Noon–7pm</div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">Contact</div>
+      <div class="info-secondary">
+        Follow us on Instagram for updates,<br>
+        events, and specials.<br><br>
+        <a href="https://instagram.com/memorialtrailicehouse" target="_blank">@memorialtrailicehouse</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="map-side">
+    <iframe
+      class="map-embed"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.5!2d-95.42!3d29.76!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMemorial+Trail+Ice+House!5e0!3m2!1sen!2sus!4v1"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Memorial Trail Ice House Map">
+    </iframe>
+    <div class="map-pin">
+      <div class="map-pin-name">Memorial Trail Ice House</div>
+      <div class="map-pin-addr">Houston, TX<br>Along the Memorial Trail</div>
+      <a href="https://maps.google.com/?q=Memorial+Trail+Ice+House+Houston+TX" target="_blank" class="btn-map">Get Directions</a>
+    </div>
+  </div>
+</div>
+
+<!-- NOTES STRIP -->
+<div class="notes-strip">
+  <div class="note-card">
+    <div class="note-icon">🚗</div>
+    <div class="note-title">Parking</div>
+    <div class="note-body">Ample gravel lot on site. Easy in, easy out. No valet, no garage, no stress.</div>
+  </div>
+  <div class="note-card">
+    <div class="note-icon">🚴</div>
+    <div class="note-title">Trail Access</div>
+    <div class="note-body">Roll right in off the Memorial Trail. Bike parking available. You earned the drink.</div>
+  </div>
+  <div class="note-card">
+    <div class="note-icon">🐕</div>
+    <div class="note-title">Dog Friendly</div>
+    <div class="note-body">Bring the dog. The patio is wide open. They'll love it as much as you do.</div>
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <img src="images/gallery/gravel-lot.jpg" alt="Gravel Lot Parking">
+  <img src="images/gallery/exterior-brick.jpg" alt="Exterior">
+  <img src="images/gallery/garage-doors.jpg" alt="Garage Doors Open">
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Memorial Trail <span>Ice House</span></div>
+  <div class="footer-credit">Website by <a href="https://clstrategy.co" target="_blank">C&amp;L Strategy</a></div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navMobile').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

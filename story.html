@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Memorial Trail Ice House - Houston's premier craft bar. Visit us for drinks, events, and good times.
+<title>The Story — Memorial Trail Ice House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal: #1C1C1C;
+    --green: #2D5A3D;
+    --gold: #D4924A;
+    --cream: #F5F0E8;
+    --dark2: #141414;
+  }
+
+  body {
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--charcoal);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+  }
+
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: var(--dark2);
+    border-bottom: 1px solid rgba(212,146,74,0.2);
+    z-index: 99;
+    padding: 1rem 0;
+  }
+
+  .nav-mobile.open { display: block; }
+
+  .nav-mobile a {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-mobile a:hover, .nav-mobile a.active {
+    color: var(--gold);
+    border-left-color: var(--gold);
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    margin-top: 56px;
+    position: relative;
+    height: 55vh;
+    min-height: 380px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 4rem 4rem;
+  }
+
+  .page-header-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/gallery/exterior-entrance.jpg');
+    background-size: cover;
+    background-position: center 55%;
+    animation: kenburns 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes kenburns {
+    0%   { transform: scale(1.0); }
+    100% { transform: scale(1.08) translate(1%, -1%); }
+  }
+
+  .page-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.4) 60%, transparent 100%);
+  }
+
+  .page-header-content { position: relative; z-index: 2; }
+
+  .page-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--cream);
+  }
+
+  /* STORY BODY */
+  .story-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 6rem 4rem;
+  }
+
+  .story-body .lead {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--cream);
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(245,240,232,0.1);
+  }
+
+  .story-body p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(245,240,232,0.72);
+    margin-bottom: 1.75rem;
+  }
+
+  .story-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--cream);
+    margin: 3.5rem 0 1.25rem;
+    line-height: 1.2;
+  }
+
+  .story-body h2 em { color: var(--gold); font-style: italic; }
+
+  .pullquote {
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin: 3rem 0;
+    background: rgba(212,146,74,0.05);
+  }
+
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* CONSTRUCTION GRID */
+  .construction-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin: 5rem 0;
+  }
+
+  .construction-grid img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.7);
+    transition: filter 0.4s;
+  }
+
+  .construction-grid img:hover { filter: saturate(1); }
+
+  .construction-grid .span2 {
+    grid-column: span 2;
+    height: 420px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    padding: 5rem 4rem;
+    background: var(--dark2);
+    position: relative;
+  }
+
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 3.5rem;
+  }
+
+  .timeline-title em { color: var(--gold); font-style: italic; }
+
+  .timeline-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border-left: 1px solid rgba(212,146,74,0.2);
+    padding-left: 2rem;
+  }
+
+  .tl-item {
+    padding: 0 2.5rem 3rem 0;
+    position: relative;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0.35rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    transform: translateX(-3.5px);
+  }
+
+  .tl-date {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .tl-item h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .tl-item p {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba(245,240,232,0.5);
+  }
+
+  /* PHOTO PAIR */
+  .photo-pair {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4px;
+    height: 520px;
+  }
+
+  .photo-pair img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(245,240,232,0.06);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-credit {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.35);
+  }
+
+  .footer-credit a {
+    color: rgba(212,146,74,0.7);
+    text-decoration: none;
+  }
+
+  .footer-credit a:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .page-header { padding: 0 2rem 3rem; }
+    .story-body { padding: 4rem 2rem; }
+    .construction-grid { grid-template-columns: 1fr; }
+    .construction-grid .span2 { grid-column: 1; height: 300px; }
+    .construction-grid img { height: 260px; }
+    .timeline { padding: 4rem 2rem; }
+    .timeline-items { grid-template-columns: 1fr; }
+    .photo-pair { grid-template-columns: 1fr; height: auto; }
+    .photo-pair img { height: 280px; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Memorial Trail <span>Ice House</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html" class="active">Story</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Visit</a></li>
+    <li><a href="deck.html">Strategy Deck</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="story.html" class="active">Story</a>
+  <a href="menu.html">Menu</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Visit</a>
+  <a href="deck.html">Strategy Deck</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-overlay"></div>
+  <div class="page-header-content">
+    <p class="page-eyebrow">The Revival</p>
+    <h1 class="page-title">A Bar Born<br>from a Vacant Lot.</h1>
+  </div>
+</div>
+
+<!-- STORY BODY -->
+<div class="story-body">
+  <p class="lead">
+    Memorial Trail Ice House didn't start as a business plan. It started as a question: why doesn't this neighborhood have a place like this?
+  </p>
+
+  <p>
+    The Memorial corridor has always been one of Houston's great outdoor gathering places — cyclists, runners, dog walkers, families — all moving through one of the city's most beloved greenways. But when the sun goes down and the effort is done, there was never a proper place to land.
+  </p>
+
+  <p>
+    That gap is what Memorial Trail Ice House was built to fill. A real ice house — open-air, unpretentious, community-first — sitting at the edge of the trail like it was always supposed to be there.
+  </p>
+
+  <div class="pullquote">
+    <p>"We didn't want to build a bar. We wanted to build a third place — the spot between home and work where neighborhoods actually happen."</p>
+  </div>
+
+  <h2>From Vacant to <em>Vibrant</em></h2>
+
+  <p>
+    The site was a gravel lot. The bones were industrial — exposed brick, raw steel, concrete. The team made a deliberate choice: don't cover it up. Lean into it. The garage doors that open wide to the patio, the string lights overhead, the mural on the wall — all of it was designed to feel like the neighborhood built it itself.
+  </p>
+
+  <p>
+    Construction ran through months of Houston weather. The crew dealt with heat, rain, supply delays, and all the things that come with converting a raw space into a fully permitted, inspected, operational bar. Every challenge added a layer to what the place became.
+  </p>
+</div>
+
+<!-- CONSTRUCTION GRID -->
+<div style="padding: 0 0 4px; background: var(--charcoal);">
+  <div class="construction-grid" style="margin: 0;">
+    <img src="images/gallery/construction1.jpg" alt="Construction Phase 1">
+    <img src="images/gallery/construction2.jpg" alt="Construction Phase 2">
+    <img src="images/gallery/garage-doors.jpg" alt="Garage Doors Installation" class="span2">
+  </div>
+</div>
+
+<!-- CONTINUE STORY -->
+<div class="story-body">
+  <h2>The <em>Design</em> Language</h2>
+
+  <p>
+    Every decision in the space was intentional. The bar faces the patio — so the bartender is always part of the outdoor energy. The gravel lot stays gravel — because smoothing it out would lose something honest. The mural tells a neighborhood story. The taps are clean and simple.
+  </p>
+
+  <p>
+    The cocktail menu followed the same logic. Fourteen signature drinks, each named for a neighborhood along the Memorial corridor — Woodcrest, Rice Military, Camp Logan, Crestwood. The prices aren't pretentious. The craft is.
+  </p>
+
+  <p>
+    This is what happens when the people who live somewhere build the place they always wanted to drink.
+  </p>
+</div>
+
+<!-- PHOTO PAIR -->
+<div class="photo-pair">
+  <img src="images/gallery/interior-industrial.jpg" alt="Industrial interior">
+  <img src="images/gallery/outdoor-bar.jpg" alt="Outdoor bar">
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+  <p style="font-family:'Oswald',sans-serif; font-size:0.65rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem;">The Build</p>
+  <h2 class="timeline-title">From Idea<br>to <em>Open</em>.</h2>
+  <div class="timeline-items">
+    <div class="tl-item">
+      <div class="tl-date">Phase 01</div>
+      <h3>Site Acquisition</h3>
+      <p>A gravel lot off the Memorial Trail. Vacant. Full of potential. The right neighborhood, the right bones.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Phase 02</div>
+      <h3>Design & Permits</h3>
+      <p>Industrial design direction locked in. Garage doors ordered. Permits filed. The vision on paper becomes a plan.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Phase 03</div>
+      <h3>Construction</h3>
+      <p>Steel, brick, concrete. The patio takes shape. The mural goes up. The bar gets its taps.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Phase 04</div>
+      <h3>Menu Development</h3>
+      <p>14 cocktails crafted and named. Happy hour pricing set. Daily specials mapped out for every night of the week.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Phase 05</div>
+      <h3>Staff & Training</h3>
+      <p>A team assembled from the neighborhood. Bartenders trained on every recipe. The floor comes alive.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Phase 06</div>
+      <h3>Open</h3>
+      <p>Garage doors up. String lights on. First pour poured. Memorial Trail Ice House is open.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Memorial Trail <span>Ice House</span></div>
+  <div class="footer-credit">Website by <a href="https://clstrategy.co" target="_blank">C&amp;L Strategy</a></div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navMobile').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
