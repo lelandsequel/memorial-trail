@@ -401,6 +401,18 @@
   }
 
   .footer-credit a:hover { color: var(--gold); }
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .footer-social a {
+    color: rgba(245,240,232,0.5);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+  }
+  .footer-social a:hover { color: var(--gold); }
 
   @media (max-width: 1100px) {
     .week-grid {
@@ -462,7 +474,7 @@
 
 <!-- WEEK INTRO -->
 <div class="week-intro">
-  <p>Seven nights a week, we give you a reason to show up. From industry night to trivia, half-off Fridays to weekend mimosas — there's always something worth coming for.</p>
+  <p>Seven nights a week, we give you a reason to show up. From industry night to half-off Fridays and weekend mimosas — there's always something worth coming for.</p>
 </div>
 
 <!-- WEEK GRID -->
@@ -483,7 +495,7 @@
   <div class="day-card featured">
     <div class="day-num">02</div>
     <div class="day-name">Tuesday</div>
-    <div class="day-event-name">$3 Trivia Night</div>
+    <div class="day-event-name">Tuesday Specials</div>
     <div class="day-deals">
       <strong>$3</strong> Green Tea Shots<br>
       <strong>$3</strong> White Tea Shots<br>
@@ -521,6 +533,7 @@
     <div class="day-name">Friday</div>
     <div class="day-event-name">Half Off Friday</div>
     <div class="day-deals">
+      <strong>Until 7pm</strong><br><br>
       <strong>50% off</strong><br>
       Specialty Cocktails<br><br>
       <strong>50% off</strong><br>
@@ -571,9 +584,9 @@
   </div>
   <div class="callout-card">
     <div class="callout-label">Every Friday</div>
-    <h3 class="callout-title">50% Off<br><em>All Night.</em></h3>
+    <h3 class="callout-title">50% Off<br><em>Until 7pm.</em></h3>
     <p class="callout-body">
-      Half off all <strong>specialty cocktails, domestic drafts, and house wine</strong> — all night long on Fridays. No asterisks.
+      Half off all <strong>specialty cocktails, domestic drafts, and house wine</strong> — every Friday until 7pm. No asterisks.
     </p>
   </div>
 </div>
@@ -590,6 +603,14 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">Memorial Trail <span>Ice House</span></div>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/memorialtrailicehouse" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://instagram.com/memorialtrailicehouse" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+  </div>
   <div class="footer-credit">Website by <a href="https://clstrategy.co" target="_blank">C&amp;L Strategy</a></div>
 </footer>
 
