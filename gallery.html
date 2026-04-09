@@ -628,12 +628,33 @@
   <button class="filter-tab" onclick="filterGallery('build', this)">The Build</button>
 </div>
 
-<!-- TRANSFORMATION SECTION (Archived - now showing live venue photos) -->
-
 <!-- GALLERY GRID -->
 <div class="gallery-container">
   <div class="gallery-grid" id="galleryGrid">
 
+    <!-- New images injected at the top -->
+    <div class="gallery-item wide" data-cat="people" data-src="images/crowd-shot.png" data-cap="Opening Night Crowd">
+      <img src="images/crowd-shot.png" alt="Opening Night Crowd" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="details" data-src="images/table-tent-bar.jpg" data-cap="Bar Table Tent">
+      <img src="images/table-tent-bar.jpg" alt="Bar Table Tent" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-cat="details" data-src="images/table-tent-outdoor.jpg" data-cap="Outdoor Table Tent">
+      <img src="images/table-tent-outdoor.jpg" alt="Outdoor Table Tent" loading="lazy">
+      <div class="gallery-item-overlay">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+    </div>
+
+    <!-- Existing gallery items -->
     <div class="gallery-item wide" data-cat="interior" data-src="images/gallery/ice-house-bar-01.jpg" data-cap="Bar & Cocktails">
       <img src="images/gallery/ice-house-bar-01.jpg" alt="Bar & Cocktails" loading="lazy">
       <div class="gallery-item-overlay">
@@ -697,8 +718,6 @@
       </div>
     </div>
 
-
-
   </div>
 </div>
 
@@ -708,145 +727,86 @@
   <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8592;</button>
   <img class="lightbox-img" id="lightboxImg" src="" alt="">
   <div class="lightbox-caption" id="lightboxCaption"></div>
-  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8594;</button>
   <div class="lightbox-counter" id="lightboxCounter"></div>
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8594;</button>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">Memorial Trail <span>Ice House</span></div>
   <div class="footer-social">
-    <a href="https://www.facebook.com/memorialtrailicehouse" target="_blank" rel="noopener" aria-label="Facebook">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-    </a>
-    <a href="https://instagram.com/memorialtrailicehouse" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-    </a>
+    <a href="https://www.instagram.com/memorialtrailicehouse" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="mailto:info@memorialtrailicehouse.com">Email</a>
   </div>
-  <div class="footer-credit">Website by <a href="https://clstrategy.co" target="_blank">C&amp;L Strategy</a></div>
+  <div class="footer-credit">Website by <a href="https://cl-strategy.com" target="_blank" rel="noopener noreferrer">C&L Strategy</a></div>
 </footer>
 
 <script>
-  // NAV
+  let lightboxItems = [];
+  let currentIndex = 0;
+
   function toggleMenu() {
-    document.getElementById('navMobile').classList.toggle('open');
+    const navMobile = document.getElementById('navMobile');
+    navMobile.classList.toggle('open');
   }
 
-  // BEFORE/AFTER SLIDER
-  document.querySelectorAll('.comparison-slider').forEach(slider => {
-    const afterImage = slider.querySelector('.comparison-after');
-    const handle = slider.querySelector('.comparison-handle');
-    
-    function updateSlider(x) {
-      const rect = slider.getBoundingClientRect();
-      let position = ((x - rect.left) / rect.width) * 100;
-      position = Math.max(0, Math.min(100, position));
-      
-      afterImage.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
-      handle.style.left = position + '%';
-    }
-    
-    // Mouse events
-    slider.addEventListener('mousedown', function(e) {
-      e.preventDefault();
-      updateSlider(e.clientX);
-      
-      function onMouseMove(e) {
-        updateSlider(e.clientX);
-      }
-      
-      function onMouseUp() {
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
-      }
-      
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', onMouseUp);
-    });
-    
-    // Touch events
-    slider.addEventListener('touchstart', function(e) {
-      updateSlider(e.touches[0].clientX);
-      
-      function onTouchMove(e) {
-        updateSlider(e.touches[0].clientX);
-      }
-      
-      function onTouchEnd() {
-        document.removeEventListener('touchmove', onTouchMove);
-        document.removeEventListener('touchend', onTouchEnd);
-      }
-      
-      document.addEventListener('touchmove', onTouchMove);
-      document.addEventListener('touchend', onTouchEnd);
-    });
-  });
+  function updateLightboxItems() {
+    lightboxItems = Array.from(document.querySelectorAll('.gallery-item'));
+  }
 
-  // GALLERY FILTER
-  function filterGallery(cat, btn) {
-    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      if (cat === 'all' || item.dataset.cat === cat) {
+  function filterGallery(category, button) {
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach(item => {
+      if (category === 'all' || item.dataset.cat === category) {
         item.classList.remove('hidden');
       } else {
         item.classList.add('hidden');
       }
     });
 
-    updateLightboxItems();
+    const tabs = document.querySelectorAll('.filter-tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    button.classList.add('active');
   }
 
-  // LIGHTBOX
-  var lightboxItems = [];
-  var currentIdx = 0;
+  function openLightbox(index) {
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    const caption = document.getElementById('lightboxCaption');
+    const counter = document.getElementById('lightboxCounter');
 
-  function updateLightboxItems() {
-    lightboxItems = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
-  }
+    const item = lightboxItems[index];
+    img.src = item.dataset.src;
+    caption.textContent = item.dataset.cap || '';
+    counter.textContent = (index + 1) + ' / ' + lightboxItems.length;
 
-  updateLightboxItems();
-
-  // Attach click handlers
-  document.querySelectorAll('.gallery-item').forEach(function(item) {
-    item.addEventListener('click', function() {
-      updateLightboxItems();
-      var idx = lightboxItems.indexOf(item);
-      openLightbox(idx);
-    });
-  });
-
-  function openLightbox(idx) {
-    currentIdx = idx;
-    var item = lightboxItems[idx];
-    document.getElementById('lightboxImg').src = item.dataset.src;
-    document.getElementById('lightboxCaption').textContent = item.dataset.cap || '';
-    document.getElementById('lightboxCounter').textContent = (idx + 1) + ' / ' + lightboxItems.length;
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
+    currentIndex = index;
+    lightbox.classList.add('open');
   }
 
   function closeLightbox() {
     document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
   }
 
-  function closeLightboxOutside(e) {
-    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  function closeLightboxOutside(event) {
+    if (event.target.id === 'lightbox') {
+      closeLightbox();
+    }
   }
 
-  function lightboxNav(dir) {
-    currentIdx = (currentIdx + dir + lightboxItems.length) % lightboxItems.length;
-    openLightbox(currentIdx);
+  function lightboxNav(direction) {
+    currentIndex = (currentIndex + direction + lightboxItems.length) % lightboxItems.length;
+    openLightbox(currentIndex);
   }
 
-  // Keyboard navigation
-  document.addEventListener('keydown', function(e) {
-    if (!document.getElementById('lightbox').classList.contains('open')) return;
-    if (e.key === 'ArrowLeft') lightboxNav(-1);
-    if (e.key === 'ArrowRight') lightboxNav(1);
-    if (e.key === 'Escape') closeLightbox();
+  document.addEventListener('DOMContentLoaded', () => {
+    updateLightboxItems();
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        updateLightboxItems();
+        const idx = lightboxItems.indexOf(item);
+        openLightbox(idx);
+      });
+    });
   });
 </script>
 
