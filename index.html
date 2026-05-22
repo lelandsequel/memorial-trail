@@ -145,9 +145,9 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('images/gallery/string-lights.jpg');
+    background-image: url('images/home/hero-night-patio-bikes.jpg');
     background-size: cover;
-    background-position: center 40%;
+    background-position: center 52%;
     animation: kenburns 20s ease-in-out infinite alternate;
     transform-origin: center center;
   }
@@ -300,6 +300,137 @@
   @keyframes ticker {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+  }
+
+  /* ── CURRENT EVENTS BAND ── */
+  .current-events {
+    background: var(--dark2);
+    border-top: 1px solid rgba(245,240,232,0.06);
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+    padding: 4.5rem 4rem;
+  }
+
+  .current-events-inner {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.62fr) 1fr;
+    gap: 3rem;
+    align-items: stretch;
+  }
+
+  .events-flyer-card {
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+    background: #0d0d0d;
+    border: 1px solid rgba(212,146,74,0.35);
+  }
+
+  .events-flyer-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .events-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .events-kicker {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .events-kicker::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .events-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .events-title em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .events-copy {
+    max-width: 560px;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.68);
+    margin-bottom: 2rem;
+  }
+
+  .event-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .event-chip {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 1rem;
+    align-items: center;
+    background: rgba(245,240,232,0.045);
+    border: 1px solid rgba(245,240,232,0.08);
+    padding: 0.9rem;
+  }
+
+  .event-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--gold);
+    text-align: center;
+  }
+
+  .event-date span {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.48);
+    margin-top: 0.25rem;
+  }
+
+  .event-chip h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 0.2rem;
+  }
+
+  .event-chip p {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: rgba(245,240,232,0.55);
   }
 
   /* ── SECTIONS ── */
@@ -578,9 +709,47 @@
 
     .photo-strip img { height: 260px; }
 
+    .current-events {
+      padding: 3.5rem 2rem;
+    }
+
+    .current-events-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .events-flyer-card {
+      min-height: 0;
+      max-height: 520px;
+    }
+
+    .event-list {
+      grid-template-columns: 1fr;
+    }
+
     section { padding: 4rem 2rem; }
 
-    .hero-content { padding: 0 2rem; }
+    .hero {
+      min-height: 720px;
+      height: 100svh;
+      padding-bottom: 7vh;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: calc(100vw - 4rem);
+      padding: 0 2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 15vw, 4.2rem);
+      letter-spacing: 0;
+    }
+
+    .hero-desc {
+      max-width: 100%;
+      font-size: 0.98rem;
+    }
 
     .hours-band { padding: 3rem 2rem; gap: 2rem; }
 
@@ -654,6 +823,65 @@
   </div>
 </div>
 
+<!-- CURRENT EVENTS -->
+<section class="current-events" aria-labelledby="current-events-title">
+  <div class="current-events-inner">
+    <figure class="events-flyer-card">
+      <img src="images/home/current-events-may-2026.jpg" alt="May 2026 upcoming events flyer for Memorial Trail Ice House">
+    </figure>
+    <div class="events-content">
+      <p class="events-kicker">Happening Now</p>
+      <h2 class="events-title" id="current-events-title">May is stacked <em>on the trail.</em></h2>
+      <p class="events-copy">Live music, bingo nights, acoustic karaoke, and a Saturday marketplace. Roll through for the special, stay for the patio.</p>
+      <div class="event-list" aria-label="Current events">
+        <article class="event-chip">
+          <div class="event-date">24<span>May</span></div>
+          <div>
+            <h3>Live Music: Jake Andrews</h3>
+            <p>Show starts at 1pm.</p>
+          </div>
+        </article>
+        <article class="event-chip">
+          <div class="event-date">26<span>May</span></div>
+          <div>
+            <h3>Purse Bingo</h3>
+            <p>6pm start time.</p>
+          </div>
+        </article>
+        <article class="event-chip">
+          <div class="event-date">28<span>May</span></div>
+          <div>
+            <h3>Acoustic Karaoke</h3>
+            <p>Starting at 6pm.</p>
+          </div>
+        </article>
+        <article class="event-chip">
+          <div class="event-date">30<span>May</span></div>
+          <div>
+            <h3>Adult Bingo</h3>
+            <p>18+ Up Bingo starting at 9pm.</p>
+          </div>
+        </article>
+        <article class="event-chip">
+          <div class="event-date">31<span>May</span></div>
+          <div>
+            <h3>Outdoor Marketplace</h3>
+            <p>Vendors open at noon.</p>
+          </div>
+        </article>
+        <article class="event-chip">
+          <div class="event-date">31<span>May</span></div>
+          <div>
+            <h3>Live Music: Tre from the Fe</h3>
+            <p>Show starts at 1pm.</p>
+          </div>
+        </article>
+      </div>
+      <a href="events.html" class="btn-primary">See All Events</a>
+    </div>
+  </div>
+</section>
+
 <!-- INTRO SPLIT -->
 <div class="intro-split">
   <div class="intro-text">
@@ -664,7 +892,7 @@
     <a href="story.html" class="link-more">Read the full story →</a>
   </div>
   <div class="intro-image">
-    <img src="images/gallery/bar-taps.jpg" alt="Bar taps at Memorial Trail Ice House">
+    <img src="images/home/patio-day-entrance.jpg" alt="Daytime patio seating at Memorial Trail Ice House">
   </div>
 </div>
 
@@ -702,7 +930,12 @@
   </div>
 </div>
 
-
+<!-- PHOTO STRIP -->
+<div class="photo-strip" aria-label="Memorial Trail Ice House scenes">
+  <img src="images/home/event-crowd-inside.jpg" alt="Guests gathered inside Memorial Trail Ice House for an event">
+  <img src="images/home/night-bike-rack.jpg" alt="Bikes parked outside under patio string lights">
+  <img src="images/home/bar-food-service.jpg" alt="Food and drinks served at the Memorial Trail Ice House bar">
+</div>
 
 <!-- HOURS BAND -->
 <div class="hours-band">
