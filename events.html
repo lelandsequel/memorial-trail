@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Memorial Trail Ice House - Houston's premier craft bar. Visit us for drinks, events, and good times.
+<meta name="description" content="Memorial Trail Ice House events - weekly specials, live music, happy hour, trivia, bingo, and weekend happenings in Houston.">
 <title>Events — Memorial Trail Ice House</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -266,6 +266,134 @@
     font-weight: 500;
   }
 
+  /* UPCOMING SHOWS */
+  .upcoming {
+    padding: 5rem 4rem 4rem;
+    background: var(--charcoal);
+  }
+
+  .upcoming-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+  }
+
+  .upcoming-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .upcoming-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .upcoming-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--cream);
+  }
+
+  .upcoming-title em { font-style: italic; color: var(--gold); }
+
+  .upcoming-sub {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.5);
+    max-width: 360px;
+    line-height: 1.65;
+    text-align: right;
+  }
+
+  .shows-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .show-card {
+    background: var(--dark2);
+    border: 1px solid rgba(245,240,232,0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, border-color 0.25s;
+  }
+
+  .show-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212,146,74,0.4);
+  }
+
+  .show-flyer {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    display: block;
+    background: #000;
+  }
+
+  .show-body {
+    padding: 1.25rem 1.25rem 1.5rem;
+    border-top: 2px solid var(--gold);
+  }
+
+  .show-date {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .show-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+
+  .show-meta {
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.6;
+  }
+
+  .show-meta strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  @media (max-width: 1100px) {
+    .shows-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .upcoming { padding: 4rem 2rem 3rem; }
+    .upcoming-sub { text-align: left; }
+    .shows-grid { grid-template-columns: 1fr; }
+  }
+
   /* SPECIAL CALLOUTS */
   .callout-strip {
     display: grid;
@@ -469,37 +597,12 @@
   <div class="page-header-content">
     <p class="page-eyebrow">Every Night</p>
     <h1 class="page-title">Something's<br>Always On.</h1>
-    <a href="#corporate-events" style="display: inline-block; margin-top: 1.5rem; padding: 0.75rem 1.5rem; background: var(--gold); color: var(--charcoal); text-decoration: none; font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; transition: all 0.3s;">Host Your Event Here!</a>
   </div>
 </div>
 
 <!-- WEEK INTRO -->
 <div class="week-intro">
   <p>Seven nights a week, we give you a reason to show up. From industry night to half-off Fridays and weekend mimosas — there's always something worth coming for.</p>
-</div>
-
-<!-- CORPORATE EVENTS SECTION (moved to top) -->
-<div id="corporate-events" class="hh-reminder" style="background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark2) 100%); padding: 4rem 2rem; margin: 2rem 0;">
-  <div class="hh-reminder-text" style="text-align: center;">
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem;">Host Your Next Corporate Event Here!</h2>
-    <p style="font-size: 1.1rem; color: var(--cream); margin-bottom: 2rem;">Memorial Trail Ice House — the perfect venue for company happy hours, team celebrations, and corporate gatherings.</p>
-  </div>
-  
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto;">
-    <img src="images/PXL_20260421_003151500.jpg" alt="Corporate event space" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px;">
-    <img src="images/PXL_20260421_003153636.jpg" alt="Corporate event space" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px;">
-    <img src="images/PXL_20260421_003155282.jpg" alt="Corporate event space" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px;">
-    <img src="images/PXL_20260421_003204447.jpg" alt="Corporate event space" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px;">
-    <img src="images/PXL_20260421_010105268.jpg" alt="Corporate event space" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px;">
-    <img src="images/PXL_20260421_010108024.MP.jpg" alt="Corporate event space" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px;">
-    <img src="images/PXL_20260421_021025272.MP.jpg" alt="Corporate event space" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px;">
-    <img src="images/PXL_20260421_021028329.MP.jpg" alt="Corporate event space" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px;">
-    <img src="images/PXL_20260421_021029602.jpg" alt="Corporate event space" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px;">
-  </div>
-  
-  <div style="text-align: center; margin-top: 2rem;">
-    <a href="contact.html" class="btn-outline-light" style="display: inline-block; padding: 1rem 2rem; background: transparent; border: 2px solid var(--gold); color: var(--gold); text-decoration: none; font-family: 'Oswald', sans-serif; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.3s;">Book Your Event</a>
-  </div>
 </div>
 
 <!-- WEEK GRID -->
@@ -512,8 +615,7 @@
     <div class="day-deals">
       <strong>$5</strong> Rumpleminze<br>
       <strong>$5</strong> Espolon<br>
-      <strong>$5</strong> Jägermeister<br>
-      <strong>$100</strong> Select Bottles
+      <strong>$5</strong> Jägermeister
     </div>
   </div>
 
@@ -532,8 +634,9 @@
   <div class="day-card featured">
     <div class="day-num">03</div>
     <div class="day-name">Wednesday</div>
-    <div class="day-event-name">Whiskey &amp; Wine</div>
+    <div class="day-event-name">Trivia Night + Whiskey &amp; Wine</div>
     <div class="day-deals">
+      Fun games, big prizes &amp; <strong>$1</strong> wings<br><br>
       <strong>$5</strong> Redemption Gold Rush<br>
       <strong>$6</strong> House Wine<br>
       <strong>$7</strong> Old Forrester Old Fashioned
@@ -597,6 +700,57 @@
 
 </div>
 
+<!-- UPCOMING SHOWS -->
+<section class="upcoming">
+  <div class="upcoming-head">
+    <div>
+      <p class="upcoming-eyebrow">Sunday Concert Series</p>
+      <h2 class="upcoming-title">Upcoming <em>Shows.</em></h2>
+    </div>
+    <p class="upcoming-sub">Every Sunday — live, up close, and personal from our stage. Acoustic sets, sing-alongs, story telling and more. Always free.</p>
+  </div>
+
+  <div class="shows-grid">
+
+    <article class="show-card">
+      <img class="show-flyer" src="images/events/concert-may-03-aj-santana.png" alt="Sunday Concert Series — AJ Santana, May 3, 2026">
+      <div class="show-body">
+        <div class="show-date">Sun · May 3, 2026 · 1pm</div>
+        <h3 class="show-name">AJ Santana</h3>
+        <p class="show-meta">Sunday Concert Series · <strong>Free</strong></p>
+      </div>
+    </article>
+
+    <article class="show-card">
+      <img class="show-flyer" src="images/events/concert-may-17-kj-diva-d.png" alt="Karaoke Brunch with KJ Diva D, May 17">
+      <div class="show-body">
+        <div class="show-date">Sun · May 17 · 11:30am</div>
+        <h3 class="show-name">KJ Diva D — Karaoke Brunch</h3>
+        <p class="show-meta">A little shake up for the weekend · <strong>Free</strong></p>
+      </div>
+    </article>
+
+    <article class="show-card">
+      <img class="show-flyer" src="images/events/concert-may-31-trey-from-the-fe.png" alt="Sunday Concert Series — Trey From The Fe, May 31">
+      <div class="show-body">
+        <div class="show-date">Sun · May 31 · 1pm</div>
+        <h3 class="show-name">Trey From The Fe</h3>
+        <p class="show-meta">Sunday Concert Series · <strong>Free</strong></p>
+      </div>
+    </article>
+
+    <article class="show-card">
+      <img class="show-flyer" src="images/events/concert-jun-14-charlie-mccabe.png" alt="Sunday Concert Series — Charlie McCabe, June 14">
+      <div class="show-body">
+        <div class="show-date">Sun · Jun 14 · 1pm</div>
+        <h3 class="show-name">Charlie McCabe</h3>
+        <p class="show-meta">Sunday Concert Series · <strong>Free</strong></p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 <!-- CALLOUT STRIP -->
 <div style="height: 4rem; background: var(--charcoal);"></div>
 <div class="callout-strip">
@@ -609,6 +763,19 @@
   </div>
   <div class="callout-card">
     <div class="callout-label">Every Friday</div>
+  <!-- TABLE TENT FEATURE -->
+  <div class="callout-card">
+    <div class="callout-label">On the Tables</div>
+    <h2 class="callout-title">The Trail, <em>Printed.</em></h2>
+    <p class="callout-body">We designed our table tents to do more than list specials — they put our regulars, cocktails, and beer highlights right in your line of sight without shouting. It's the same handwriting-forward feel you get at the bar, just with a little more polish.</p>
+  </div>
+
+  <div class="callout-card">
+    <div class="callout-label">Built to Be Used</div>
+    <h2 class="callout-title">Weekend &amp; Event Guides.</h2>
+    <p class="callout-body">From game days to live music weekends, the printed pieces around the room — table tents, chalk boards, and posters — give you the beats of the week at a glance so you can drop in and immediately know what's happening.</p>
+  </div>
+
     <h3 class="callout-title">50% Off<br><em>Until 7pm.</em></h3>
     <p class="callout-body">
       Half off all <strong>specialty cocktails, domestic drafts, and house wine</strong> — every Friday until 7pm. No asterisks.
@@ -629,10 +796,11 @@
 <footer>
   <div class="footer-brand">Memorial Trail <span>Ice House</span></div>
   <div class="footer-social">
-    <a href="https://www.facebook.com/memorialtrailicehouse" target="_blank" rel="noopener" aria-label="Facebook">
+    <a href="tel:+17134855666" aria-label="Call Memorial Trail Ice House">Call (713) 485-5666</a>
+    <a href="https://www.facebook.com/groups/memorialtrailicehouse" target="_blank" rel="noopener" aria-label="Facebook">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
     </a>
-    <a href="https://instagram.com/memorialtrailicehouse" target="_blank" rel="noopener" aria-label="Instagram">
+    <a href="https://www.instagram.com/memorial_trail_ice_house_htx/" target="_blank" rel="noopener" aria-label="Instagram">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
     </a>
   </div>

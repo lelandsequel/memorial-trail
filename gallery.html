@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Memorial Trail Ice House - Houston's premier craft bar. Visit us for drinks, events, and good times.
+<meta name="description" content="Memorial Trail Ice House gallery - patio, bar, events, and neighborhood ice house moments in Houston.">
 <title>Gallery — Memorial Trail Ice House</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -383,8 +383,8 @@
 
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
   }
 
   .gallery-item {
@@ -403,6 +403,18 @@
   .gallery-item.tall {
     grid-row: span 2;
     aspect-ratio: 1/2;
+  }
+
+  .gallery-intro {
+    padding: 1rem 4rem 2rem;
+    background: var(--dark2);
+    color: rgba(245,240,232,0.62);
+    max-width: none;
+    line-height: 1.7;
+  }
+
+  .gallery-intro p {
+    max-width: 760px;
   }
 
   .gallery-item img {
@@ -620,85 +632,23 @@
   <h1 class="page-title">A Look <em>Inside</em><br>&amp; Out.</h1>
 </div>
 
+<div class="gallery-intro">
+  <p>Patio nights, cold drinks, live music, neighbors, and the room doing what it was built to do. Tap any photo to open it full screen.</p>
+</div>
+
 <!-- FILTER TABS -->
 <div class="filter-tabs">
   <button class="filter-tab active" onclick="filterGallery('all', this)">All Photos</button>
-  <button class="filter-tab" onclick="filterGallery('interior', this)">Interior</button>
-  <button class="filter-tab" onclick="filterGallery('exterior', this)">Exterior</button>
-  <button class="filter-tab" onclick="filterGallery('build', this)">The Build</button>
+  <button class="filter-tab" onclick="filterGallery('new', this)">Latest</button>
+  <button class="filter-tab" onclick="filterGallery('space', this)">The Space</button>
 </div>
-
-<!-- TRANSFORMATION SECTION (Archived - now showing live venue photos) -->
 
 <!-- GALLERY GRID -->
 <div class="gallery-container">
   <div class="gallery-grid" id="galleryGrid">
-
-    <div class="gallery-item wide" data-cat="interior" data-src="images/gallery/ice-house-bar-01.jpg" data-cap="Bar & Cocktails">
-      <img src="images/gallery/ice-house-bar-01.jpg" alt="Bar & Cocktails" loading="lazy">
-      <div class="gallery-item-overlay">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="interior" data-src="images/gallery/ice-house-interior-01.jpg" data-cap="Interior Vibes">
-      <img src="images/gallery/ice-house-interior-01.jpg" alt="Interior Vibes" loading="lazy">
-      <div class="gallery-item-overlay">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="interior" data-src="images/gallery/ice-house-interior-02.jpg" data-cap="Seating & Ambiance">
-      <img src="images/gallery/ice-house-interior-02.jpg" alt="Seating & Ambiance" loading="lazy">
-      <div class="gallery-item-overlay">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="exterior" data-src="images/gallery/ice-house-patio-01.jpg" data-cap="Outdoor Patio">
-      <img src="images/gallery/ice-house-patio-01.jpg" alt="Outdoor Patio" loading="lazy">
-      <div class="gallery-item-overlay">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-      </div>
-    </div>
-
-    <div class="gallery-item wide" data-cat="exterior" data-src="images/gallery/ice-house-patio-02.jpg" data-cap="Evening at the Patio">
-      <img src="images/gallery/ice-house-patio-02.jpg" alt="Evening at the Patio" loading="lazy">
-      <div class="gallery-item-overlay">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="exterior" data-src="images/gallery/ice-house-exterior-01.jpg" data-cap="Main Entrance">
-      <img src="images/gallery/ice-house-exterior-01.jpg" alt="Main Entrance" loading="lazy">
-      <div class="gallery-item-overlay">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="exterior" data-src="images/gallery/ice-house-exterior-02.jpg" data-cap="Exterior Character">
-      <img src="images/gallery/ice-house-exterior-02.jpg" alt="Exterior Character" loading="lazy">
-      <div class="gallery-item-overlay">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="people" data-src="images/gallery/ice-house-people-01.jpg" data-cap="Behind the Bar">
-      <img src="images/gallery/ice-house-people-01.jpg" alt="Behind the Bar" loading="lazy">
-      <div class="gallery-item-overlay">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-      </div>
-    </div>
-
-    <div class="gallery-item tall" data-cat="details" data-src="images/gallery/ice-house-detail-01.jpg" data-cap="Signature Cocktails">
-      <img src="images/gallery/ice-house-detail-01.jpg" alt="Signature Cocktails" loading="lazy">
-      <div class="gallery-item-overlay">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-      </div>
-    </div>
-
-
-
+    <noscript>
+      <img src="images/gallery/new/memorial-trail-01.jpg" alt="Memorial Trail Ice House gallery photo">
+    </noscript>
   </div>
 </div>
 
@@ -708,145 +658,155 @@
   <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8592;</button>
   <img class="lightbox-img" id="lightboxImg" src="" alt="">
   <div class="lightbox-caption" id="lightboxCaption"></div>
-  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8594;</button>
   <div class="lightbox-counter" id="lightboxCounter"></div>
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8594;</button>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">Memorial Trail <span>Ice House</span></div>
   <div class="footer-social">
-    <a href="https://www.facebook.com/memorialtrailicehouse" target="_blank" rel="noopener" aria-label="Facebook">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-    </a>
-    <a href="https://instagram.com/memorialtrailicehouse" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-    </a>
+    <a href="tel:+17134855666" aria-label="Call Memorial Trail Ice House">Call (713) 485-5666</a>
+    <a href="https://www.instagram.com/memorial_trail_ice_house_htx/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://www.facebook.com/groups/memorialtrailicehouse" target="_blank" rel="noopener noreferrer">Facebook Group</a>
   </div>
-  <div class="footer-credit">Website by <a href="https://clstrategy.co" target="_blank">C&amp;L Strategy</a></div>
+  <div class="footer-credit">Website by <a href="https://cl-strategy.com" target="_blank" rel="noopener noreferrer">C&L Strategy</a></div>
 </footer>
 
 <script>
-  // NAV
+  let lightboxItems = [];
+  let currentIndex = 0;
+  const galleryPhotos = [
+    'images/gallery/new/memorial-trail-01.jpg',
+    'images/gallery/new/memorial-trail-02.jpg',
+    'images/gallery/new/memorial-trail-03.jpg',
+    'images/gallery/new/memorial-trail-04.jpg',
+    'images/gallery/new/memorial-trail-05.jpg',
+    'images/gallery/new/memorial-trail-06.jpg',
+    'images/gallery/new/memorial-trail-07.jpg',
+    'images/gallery/new/memorial-trail-08.jpg',
+    'images/gallery/new/memorial-trail-09.jpg',
+    'images/gallery/new/memorial-trail-10.jpg',
+    'images/gallery/new/memorial-trail-11.jpg',
+    'images/gallery/new/memorial-trail-12.jpg',
+    'images/gallery/new/memorial-trail-13.jpg',
+    'images/gallery/new/memorial-trail-14.jpg',
+    'images/gallery/new/memorial-trail-15.jpg',
+    'images/gallery/new/memorial-trail-16.jpg',
+    'images/gallery/new/memorial-trail-17.jpg',
+    'images/gallery/new/memorial-trail-18.jpg',
+    'images/gallery/new/memorial-trail-19.jpg',
+    'images/gallery/new/memorial-trail-20.jpg',
+    'images/gallery/new/memorial-trail-21.jpg',
+    'images/gallery/new/memorial-trail-22.jpg',
+    'images/gallery/new/memorial-trail-23.jpg',
+    'images/gallery/new/memorial-trail-24.jpg',
+    'images/gallery/new/memorial-trail-25.jpg',
+    'images/gallery/new/memorial-trail-26.jpg',
+    'images/gallery/new/memorial-trail-27.jpg',
+    'images/gallery/new/memorial-trail-28.jpg',
+    'images/gallery/new/memorial-trail-29.jpg',
+    'images/gallery/new/memorial-trail-30.jpg',
+    'images/gallery/new/memorial-trail-31.jpg',
+    'images/gallery/new/memorial-trail-32.jpg',
+    'images/gallery/new/memorial-trail-33.jpg',
+    'images/gallery/new/memorial-trail-34.jpg',
+    'images/gallery/new/memorial-trail-35.jpg',
+    'images/gallery/new/memorial-trail-36.jpg',
+    'images/gallery/new/memorial-trail-37.jpg',
+    'images/gallery/new/memorial-trail-38.jpg'
+  ];
+
+  const featuredSpacePhotos = [
+    'images/crowd-shot.png',
+    'images/table-tent-bar.jpg',
+    'images/gallery/ice-house-bar-01.jpg',
+    'images/gallery/ice-house-patio-02.jpg'
+  ];
+
   function toggleMenu() {
-    document.getElementById('navMobile').classList.toggle('open');
+    const navMobile = document.getElementById('navMobile');
+    navMobile.classList.toggle('open');
   }
 
-  // BEFORE/AFTER SLIDER
-  document.querySelectorAll('.comparison-slider').forEach(slider => {
-    const afterImage = slider.querySelector('.comparison-after');
-    const handle = slider.querySelector('.comparison-handle');
-    
-    function updateSlider(x) {
-      const rect = slider.getBoundingClientRect();
-      let position = ((x - rect.left) / rect.width) * 100;
-      position = Math.max(0, Math.min(100, position));
-      
-      afterImage.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
-      handle.style.left = position + '%';
-    }
-    
-    // Mouse events
-    slider.addEventListener('mousedown', function(e) {
-      e.preventDefault();
-      updateSlider(e.clientX);
-      
-      function onMouseMove(e) {
-        updateSlider(e.clientX);
-      }
-      
-      function onMouseUp() {
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
-      }
-      
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener('mouseup', onMouseUp);
-    });
-    
-    // Touch events
-    slider.addEventListener('touchstart', function(e) {
-      updateSlider(e.touches[0].clientX);
-      
-      function onTouchMove(e) {
-        updateSlider(e.touches[0].clientX);
-      }
-      
-      function onTouchEnd() {
-        document.removeEventListener('touchmove', onTouchMove);
-        document.removeEventListener('touchend', onTouchEnd);
-      }
-      
-      document.addEventListener('touchmove', onTouchMove);
-      document.addEventListener('touchend', onTouchEnd);
-    });
-  });
+  function updateLightboxItems() {
+    lightboxItems = Array.from(document.querySelectorAll('.gallery-item'));
+  }
 
-  // GALLERY FILTER
-  function filterGallery(cat, btn) {
-    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
+  function galleryTile(src, index, category) {
+    const shape = index % 9 === 0 || index % 9 === 4 ? ' wide' : index % 9 === 2 || index % 9 === 6 ? ' tall' : '';
+    return `
+      <div class="gallery-item${shape}" data-cat="${category}" data-src="${src}" data-cap="Memorial Trail Ice House">
+        <img src="${src}" alt="Memorial Trail Ice House patio, bar, and event photo" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+    `;
+  }
 
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      if (cat === 'all' || item.dataset.cat === cat) {
+  function renderGallery() {
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = [
+      ...galleryPhotos.map((src, index) => galleryTile(src, index, 'new')),
+      ...featuredSpacePhotos.map((src, index) => galleryTile(src, index + galleryPhotos.length, 'space'))
+    ].join('');
+  }
+
+  function filterGallery(category, button) {
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach(item => {
+      if (category === 'all' || item.dataset.cat === category) {
         item.classList.remove('hidden');
       } else {
         item.classList.add('hidden');
       }
     });
 
-    updateLightboxItems();
+    const tabs = document.querySelectorAll('.filter-tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    button.classList.add('active');
   }
 
-  // LIGHTBOX
-  var lightboxItems = [];
-  var currentIdx = 0;
+  function openLightbox(index) {
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    const caption = document.getElementById('lightboxCaption');
+    const counter = document.getElementById('lightboxCounter');
 
-  function updateLightboxItems() {
-    lightboxItems = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
-  }
+    const item = lightboxItems[index];
+    img.src = item.dataset.src;
+    caption.textContent = item.dataset.cap || '';
+    counter.textContent = (index + 1) + ' / ' + lightboxItems.length;
 
-  updateLightboxItems();
-
-  // Attach click handlers
-  document.querySelectorAll('.gallery-item').forEach(function(item) {
-    item.addEventListener('click', function() {
-      updateLightboxItems();
-      var idx = lightboxItems.indexOf(item);
-      openLightbox(idx);
-    });
-  });
-
-  function openLightbox(idx) {
-    currentIdx = idx;
-    var item = lightboxItems[idx];
-    document.getElementById('lightboxImg').src = item.dataset.src;
-    document.getElementById('lightboxCaption').textContent = item.dataset.cap || '';
-    document.getElementById('lightboxCounter').textContent = (idx + 1) + ' / ' + lightboxItems.length;
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
+    currentIndex = index;
+    lightbox.classList.add('open');
   }
 
   function closeLightbox() {
     document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
   }
 
-  function closeLightboxOutside(e) {
-    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  function closeLightboxOutside(event) {
+    if (event.target.id === 'lightbox') {
+      closeLightbox();
+    }
   }
 
-  function lightboxNav(dir) {
-    currentIdx = (currentIdx + dir + lightboxItems.length) % lightboxItems.length;
-    openLightbox(currentIdx);
+  function lightboxNav(direction) {
+    currentIndex = (currentIndex + direction + lightboxItems.length) % lightboxItems.length;
+    openLightbox(currentIndex);
   }
 
-  // Keyboard navigation
-  document.addEventListener('keydown', function(e) {
-    if (!document.getElementById('lightbox').classList.contains('open')) return;
-    if (e.key === 'ArrowLeft') lightboxNav(-1);
-    if (e.key === 'ArrowRight') lightboxNav(1);
-    if (e.key === 'Escape') closeLightbox();
+  document.addEventListener('DOMContentLoaded', () => {
+    renderGallery();
+    updateLightboxItems();
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        updateLightboxItems();
+        const idx = lightboxItems.indexOf(item);
+        openLightbox(idx);
+      });
+    });
   });
 </script>
 
